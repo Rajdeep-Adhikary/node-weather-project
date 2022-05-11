@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Choose Location</title>
+	<!-- necessary headers-->
+	<link rel="stylesheet" href="./style/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<!-- headers ends -->
+</head>
+<body style="background-color: white !important;">
+    <div class="row">
+        <div class="col-12 header">
+            <div class="welcome_message">
+                Hello Name Here
+            </div>
+            <div class="nav-space"></div>
+            <div class="header-date">
+                Date - Date here
+            </div>
+        </div>
+    </div>
+	<div class="row">
+        <div class="col-2">
+            <div class="sidebar">
+                <div class="menu menu-active">
+                    View Weather
+                </div>
+                <div class="menu">
+                    Weather History
+                </div>
+            </div>
+        </div>
+        <div class="col-10">
+            <div class="container" id="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p id="head1">Today's Weather</p>
+                    </div>
+                    <div class="col-6">
+                        <img src="./images/image.png"/>
+                    </div>
+                    <div class="col-6 text-right">
+                        <p id="tempNow">hgh</p><br>
+                        <p id="tempDesc">
+                            Partly Cloudy
+                        </p>
+                    </div>
+                    <div class="col-12">
+                        <p id="location">San Fransisco, CA</p>
+                    </div>
+        
+                    <div class="field col-6">
+                        Date
+                    </div>
+                    <div class="value col-6 text-right" id="date">
+                        2022-01-12
+                    </div>
+        
+                    <div class="field col-6">
+                        Feels Like
+                    </div>
+                    <div class="value col-6 text-right" id="feelsLike">
+                        20°C
+                    </div>
+        
+                    <div class="field col-6">
+                        Highest
+                    </div>
+                    <div class="value col-6 text-right" id="highest">
+                        20°C
+                    </div>
+        
+                    <div class="field col-6">
+                        Lowest
+                    </div>
+                    <div class="value col-6 text-right" id="lowest">
+                        12°C
+                    </div>
+        
+                    <div class="field col-6">
+                        Humidity
+                    </div>
+                    <div class="value col-6 text-right" id="humidity">
+                        56
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $.ajax({
+                        url : "getWeatherData",
+                        method: 'post',
+                        success : function (response) {
+                            // response = JSON.parse(response);
+                            var data = response;
+                            var high = low = '';
+                            data[1].forecast.forEach(element => {
+                                if(element.date === data[1].current.date){
+                                    high = element.high;
+                                    low = element.low;
+                                }
+                            });
+        
+                            $('#tempNow').html(data[1].current.temperature + '°C');
+                            $('#tempDesc').html(data[1].current.skytext);
+                            $('#location').html(data[1].current.observationpoint);
+                            $('#date').html(data[1].current.date);
+                            $('#feelsLike').html(data[1].current.feelslike + '°C');
+                            $('#highest').html(high + '°C');
+                            $('#lowest').html(low + '°C');
+                            $('#humidity').html(data[1].current.humidity + '%');
+        
+                            console.log();
+        
+                        }
+                    });
+                })
+            </script>
+        </div>
+    </div>
+</body>
+</html>

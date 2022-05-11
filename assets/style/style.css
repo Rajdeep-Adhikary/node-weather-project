@@ -1,0 +1,141 @@
+body{
+    background-color: #e1e1e1 !important;
+    font-family: roboto;
+}
+
+#container{
+    background-color: white;
+    color: rgb(37, 36, 37);
+    border: rgb(37, 36, 37);
+    margin: 200px auto;
+    border-radius: 5px;
+    padding: 15px;
+    width: 450px;
+    box-shadow: inset 0px 0px 17px 0px #e1e1e1;
+}
+#head1{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+}
+#tempNow{
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 42px;
+    color: #000000;
+}
+#tempDesc{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+
+    color: #878787;
+}
+#location{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+
+    color: #878787;
+}
+
+.field{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+    margin-bottom: 20px;
+
+    color: #666666;
+}
+
+.value{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+
+    color: #000000;
+}
+
+.weather-btn{
+    width: 100%;
+}
+
+.sidebar{
+    height: 100vh;
+    border-right: 1px solid #442698;
+    width: 100%;
+}
+
+
+.welcome_message{
+    color: #442698;
+    /* border-bottom: 2px solid #442698; */
+    padding: 15px;
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+
+.header{
+    border-bottom: 2px solid #442698;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+}
+
+.header-date{
+    color: #442698;
+    /* border-bottom: 2px solid #442698; */
+    padding: 15px;
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+.nav-space{
+    width: -webkit-fill-available;
+}
+
+.menu{
+    padding: 15px;
+    font-size: 18px;
+    color: #442698;
+    border-bottom: 1px solid #442698;
+    cursor: pointer;
+}
+
+.menu:hover{
+    padding: 15px;
+    font-size: 18px;
+    background-color: #442698;
+    color: white;
+    border-bottom: 1px solid #442698;
+}
+
+
+.menu-active{
+    padding: 15px;
+    font-size: 18px;
+    background-color: #442698;
+    color: white;
+    border-bottom: 1px solid #442698;
+}
+
+.dropdown-toggle{
+    background-color: white;
+}
